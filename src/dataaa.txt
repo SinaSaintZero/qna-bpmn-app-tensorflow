@@ -1,0 +1,118 @@
+Business Process Model and Notation (BPMN) is a graphical representation for specifying business processes in a business process model.
+
+Originally developed by the Business Process Management Initiative (BPMI), BPMN has been maintained by the Object Management Group (OMG) since the two organizations merged in 2005. Version 2.0 of BPMN was released in January 2011,[1] at which point the name was amended to Business Process Model and Notation to reflect the introduction of execution semantics, which were introduced alongside the existing notational and diagramming elements. Though it is an OMG specification, BPMN is also ratified as ISO 19510. The latest version is BPMN 2.0.2, published in January 2014.[2]
+
+Business Process Model and Notation (BPMN) is a standard for business process modeling that provides a graphical notation for specifying business processes in a Business Process Diagram (BPD),[3] based on a flowcharting technique very similar to activity diagrams from Unified Modeling Language (UML).[4] The objective of BPMN is to support business process management, for both technical users and business users, by providing a notation that is intuitive to business users, yet able to represent complex process semantics. The BPMN specification also provides a mapping between the graphics of the notation and the underlying constructs of execution languages, particularly Business Process Execution Language (BPEL).[5]
+
+BPMN has been designed to provide a standard notation readily understandable by all business stakeholders, typically including business analysts, technical developers and business managers. BPMN can therefore be used to support the generally desirable aim of all stakeholders on a project adopting a common language to describe processes, helping to avoid communication gaps that can arise between business process design and implementation.
+
+BPMN is one of a number of business process modeling language standards used by modeling tools and processes. While the current variety of languages may suit different modeling environments, there are those who advocate for the development or emergence of a single, comprehensive standard, combining the strengths of different existing languages. It is suggested that in time, this could help to unify the expression of basic business process concepts (e.g., public and private processes, choreographies), as well as advanced process concepts (e.g., exception handling, transaction compensation).
+
+Two new standards, using a similar approach to BPMN have been developed, addressing case management modeling (Case Management Model and Notation) and decision modeling, the (Decision Model and Notation).
+
+BPMN is constrained to support only the concepts of modeling applicable to business processes. Other types of modeling done by organizations for non-process purposes are out of scope for BPMN. Examples of modeling excluded from BPMN are:
+
+Organizational structures
+Functional breakdowns
+Data models[6]
+In addition, while BPMN shows the flow of data (messages), and the association of data artifacts to activities, it is not a data flow diagram.
+
+BPMN models are expressed by simple diagrams constructed from a limited set of graphical elements. For both business users and developers, they simplify understanding of business activities' flow and process. BPMN's four basic element categories are:
+Flow objects are the main describing elements within BPMN, and consist of three core elements: events, activities, and gateways.
+
+Event
+An Event is represented with a circle and denotes something that happens (compared with an activity, which is something that is done). Icons within the circle denote the type of event (e.g., an envelope representing a message, or a clock representing time). Events are also classified as Catching (for example, if catching an incoming message starts a process) or Throwing (such as throwing a completion message when a process ends).
+Start event
+Acts as a process trigger; indicated by a single narrow border, and can only be Catch, so is shown with an open (outline) icon.
+Intermediate event
+Represents something that happens between the start and end events; is indicated by a double border, and can Throw or Catch (using solid or open icons as appropriate). For example, a task could flow to an event that throws a message across to another pool, where a subsequent event waits to catch the response before continuing.
+End event
+Represents the result of a process; indicated by a single thick or bold border, and can only Throw, so is shown with a solid icon.
+Activity
+An activity is represented with a rounded-corner rectangle and describes the kind of work which must be done. An activity is a generic term for work that a company performs. It can be atomic or compound.
+Task
+A task represents a single unit of work that is not or cannot be broken down to a further level of business process detail. It is referred to as an atomic activity. A task is the lowest level activity illustrated on a process diagram. A set of tasks may represent a high-level procedure.
+Sub-process
+Used to hide or reveal additional levels of business process detail. When collapsed, a sub-process is indicated by a plus sign against the bottom line of the rectangle; when expanded, the rounded rectangle expands to show all flow objects, connecting objects, and artifacts. A sub-process is referred to as a compound activity.
+Has its own self-contained start and end events; sequence flows from the parent process must not cross the boundary.
+Transaction
+A form of sub-process in which all contained activities must be treated as a whole; i.e., they must all be completed to meet an objective, and if any one of them fails, they must all be compensated (undone). Transactions are differentiated from expanded sub-processes by being surrounded by a double border.
+Call Activity
+A point in the process where a global process or a global Task is reused. A call activity is differentiated from other activity types by a bolded border around the activity area.
+Gateway
+A gateway is represented with a diamond shape and determines forking and merging of paths, depending on the conditions expressed.
+Exclusive
+Used to create alternative flows in a process. Because only one of the paths can be taken, it is called exclusive.
+Event Based
+The condition determining the path of a process is based on an evaluated event.
+Parallel
+Used to create parallel paths without evaluating any conditions.
+Inclusive
+Used to create alternative flows where all paths are evaluated.
+Exclusive Event Based
+An event is being evaluated to determine which of mutually exclusive paths will be taken.
+Complex
+Used to model complex synchronization behavior.
+Parallel Event Based
+Two parallel processes are started based on an event, but there is no evaluation of the event.
+Connections
+Flow objects are connected to each other using Connecting objects, which are of three types: sequences, messages, and associations.
+
+Sequence Flow
+A Sequence Flow is represented with a solid line and arrowhead, and shows in which order the activities are performed. The sequence flow may also have a symbol at its start, a small diamond indicates one of a number of conditional flows from an activity, while a diagonal slash indicates the default flow from a decision or activity with conditional flows.
+Message Flow
+A Message Flow is represented with a dashed line, an open circle at the start, and an open arrowhead at the end. It tells us what messages flow across organizational boundaries (i.e., between pools). A message flow can never be used to connect activities or events within the same pool.
+Association
+An Association is represented with a dotted line. It is used to associate an Artifact or text to a Flow Object, and can indicate some directionality using an open arrowhead (toward the artifact to represent a result, from the artifact to represent an input, and both to indicate it is read and updated). No directionality is used when the Artifact or text is associated with a sequence or message flow (as that flow already shows the direction).
+
+Swim lanes are a visual mechanism of organising and categorising activities, based on cross functional flowcharting, and in BPMN consist of two types:
+
+Pool
+Represents major participants in a process, typically separating different organisations. A pool contains one or more lanes (like a real swimming pool). A pool can be open (i.e., showing internal detail) when it is depicted as a large rectangle showing one or more lanes, or collapsed (i.e., hiding internal detail) when it is depicted as an empty rectangle stretching the width or height of the diagram.
+Lane
+Used to organise and categorise activities within a pool according to function or role, and depicted as a rectangle stretching the width or height of the pool. A lane contains the flow objects, connecting objects and artifacts.
+Artifacts allow developers to bring some more information into the model/diagram. In this way the model/diagram becomes more readable. There are three pre-defined Artefacts and they are:
+
+Data objects: Data objects show the reader which data is required or produced in an activity.
+Group: A Group is represented with a rounded-corner rectangle and dashed lines. The group is used to group different activities but does not affect the flow in the diagram.
+Annotation: An annotation is used to give the reader of the model/diagram an understandable impression.
+
+BPMN 2.0.2
+The vision of BPMN 2.0.2 is to have one single specification for a new Business Process Model and Notation that defines the notation, metamodel and interchange format but with a modified name that still preserves the "BPMN" brand. The features include:
+
+Formalizes the execution semantics for all BPMN elements.
+Defines an extensibility mechanism for both Process model extensions and graphical extensions.
+Refines Event composition and correlation.
+Extends the definition of human interactions.
+Defines a Choreography model.
+The current version of the specification was released in January 2014.[1]
+
+Types of BPMN sub-model
+Business process modeling is used to communicate a wide variety of information to a wide variety of audiences. BPMN is designed to cover this wide range of usage and allows modeling of end-to-end business processes to allow the viewer of the Diagram to be able to easily differentiate between sections of a BPMN Diagram. There are three basic types of sub-models within an end-to-end BPMN model: Private (internal) business processes, Abstract (public) processes, and Collaboration (global) processes:
+
+Private (internal) business processes
+Private business processes are those internal to a specific organization and are the type of processes that have been generally called workflow or BPM processes. If swim lanes are used then a private business process will be contained within a single Pool. The Sequence Flow of the Process is therefore contained within the Pool and cannot cross the boundaries of the Pool. Message Flow can cross the Pool boundary to show the interactions that exist between separate private business processes.
+Abstract (public) processes
+This represents the interactions between a private business process and another process or participant. Only those activities that communicate outside the private business process are included in the abstract process. All other “internal” activities of the private business process are not shown in the abstract process. Thus, the abstract process shows to the outside world the sequence of messages that are required to interact with that business process. Abstract processes are contained within a Pool and can be modeled separately or within a larger BPMN Diagram to show the Message Flow between the abstract process activities and other entities. If the abstract process is in the same Diagram as its corresponding private business process, then the activities that are common to both processes can be associated.
+Collaboration (global) processes
+A collaboration process depicts the interactions between two or more business entities. These interactions are defined as a sequence of activities that represent the message exchange patterns between the entities involved. Collaboration processes may be contained within a Pool and the different participant business interactions are shown as Lanes within the Pool. In this situation, each Lane would represent two participants and a direction of travel between them. They may also be shown as two or more Abstract Processes interacting through Message Flow (as described in the previous section). These processes can be modeled separately or within a larger BPMN Diagram to show the Associations between the collaboration process activities and other entities. If the collaboration process is in the same Diagram as one of its corresponding private business process, then the activities that are common to both processes can be associated.
+Within and between these three BPMN sub-models, many types of Diagrams can be created. The following are the types of business processes that can be modeled with BPMN (those with asterisks may not map to an executable language):
+
+High-level private process activities (not functional breakdown)*
+Detailed private business process
+As-is or old business process*
+To-be or new business process
+Detailed private business process with interactions to one or more external entities (or “Black Box” processes)
+Two or more detailed private business processes interacting
+Detailed private business process relationship to Abstract Process
+Detailed private business process relationship to Collaboration Process
+Two or more Abstract Processes*
+Abstract Process relationship to Collaboration Process*
+Collaboration Process only (e.g., ebXML BPSS or RosettaNet)*
+Two or more detailed private business processes interacting through their Abstract Processes and/or a Collaboration Process
+BPMN is designed to allow all the above types of Diagrams. However, it should be cautioned that if too many types of sub-models are combined, such as three or more private processes with message flow between each of them, then the Diagram may become difficult to understand. Thus, the OMG recommends that the modeler pick a focused purpose for the BPD, such as a private or collaboration process.
+
+Comparison with other process modeling notations
+Event-driven process chains (EPC) and BPMN are two notations with similar expressivity when process modeling is concerned.[8] A BPMN model can be transformed into an EPC model. Conversely, an EPC model can be transformed into a BPMN model with only a slight loss of information.[9] A study showed that for the same process, the BPMN model may need around 40% less elements than the corresponding EPC model, but with a slightly larger set of symbols. The BPMN model would therefore be easier to read. The conversion between the two notations can be automated.[10]
+
+UML activity diagrams and BPMN are two notations that can be used to model the same processes: a subset of the activity diagram elements have a similar semantic than BPMN elements, despite the smaller and less expressive set of symbols.[11] A study showed that both types of process models appear to have the same level of readability for inexperienced users, despite the higher formal constraints of an activity diagram.
